@@ -28,25 +28,28 @@ def verifier_essai(mot_secret, essai):
     return "".join(resultat)
 
 # --- Lancer une partie ---
+
 def jouer_tomsu():
     mot_secret = random.choice(mots_secrets)
-    tentatives = 6
+    tentatives_max = 6
     taille = len(mot_secret)
 
     print("🎉 Bienvenue dans Tomsu !")
-    print(f"Mot de {taille} lettres à deviner. Vous avez {tentatives} essais.")
+    print(f"Mot de {taille} lettres à deviner. Vous avez {tentatives_max} essais.")
     print(f"Astuce : la première lettre est {mot_secret[0]}")
 
-    for essai_num in range(1, tentatives + 1):
-        essai = input(f"\nEssai {essai_num}/{tentatives} : ").upper()
+    essai_num = 0
+    while essai_num < tentatives_max:
+        essai = input(f"\nEssai {essai_num + 1}/{tentatives_max} : ").upper()
 
         if len(essai) != taille:
-            print(f"⚠️ Le mot doit faire {taille} lettres.")
-            tentatives += 1
-            continue
+            print(f"⚠️ Le mot doit faire {taille} lettres. Essai non compté.")
+            continue  # n'incrémente pas essai_num
 
         feedback = verifier_essai(mot_secret, essai)
         print(feedback)
+
+        essai_num += 1  # on incrémente seulement si le mot est de la bonne taille
 
         if essai == mot_secret:
             print(f"🎉 Bravo, trouvé en {essai_num} essais !")
@@ -54,6 +57,9 @@ def jouer_tomsu():
     else:
         print(f"❌ Perdu ! Le mot était : {mot_secret}")
 
+
 # --- Exécution ---
 if __name__ == "__main__":
     jouer_tomsu()
+
+
