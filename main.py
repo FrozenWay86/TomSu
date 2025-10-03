@@ -1,7 +1,29 @@
 import random
 
 # --- Liste de mots jouable ---
-mots_secrets = ["BANANE", "PYTHON", "ORANGE", "CERISE"]
+mots_secrets = [
+    "BANANE",
+    "ORANGE",
+    "CERISE",
+    "MANGUE",
+    "ABRICOT",
+    "RAISIN",
+    "POMMES",
+    "FRAISE",
+    "CITRON",
+    "TOMATE",
+    "COURGE",
+    "POIRE",
+    "OIGNON",
+    "AVOCAT",
+    "BETTER",
+    "MELONS",
+    "PRUNES",
+    "NECTAR",
+    "PECHES",
+    "SALAMI"
+]
+
 
 # --- Vérifier un essai ---
 def verifier_essai(mot_secret, essai):
