@@ -42,6 +42,7 @@ def jouer_tomsu():
 
         if len(essai) != taille:
             print(f"⚠️ Le mot doit faire {taille} lettres.")
+            tentatives += 1
             continue
 
         feedback = verifier_essai(mot_secret, essai)
